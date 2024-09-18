@@ -1,0 +1,73 @@
+//{ Driver Code Starts
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+// } Driver Code Ends
+// User function template for C++
+class Solution {
+  public:
+    // Function returns the second
+    // largest elements
+    
+    int largest_element(vector<int> &arr1)
+    {
+        int n= arr1.size();
+        int largest= -1;
+        for(int i=0;i<n;i++){
+            if(arr1[i]>largest)
+            {
+                largest=arr1[i];
+            }
+        }
+        return largest;
+    }
+    
+    
+    int slargest(vector<int> &arr1)
+    {
+        int largest=largest_element(arr1);
+        int slargest=-1;
+         int n= arr1.size();
+        for(int j=0;j<n;j++)
+        {
+            if(arr1[j]>slargest && arr1[j]!=largest)
+            {
+                slargest=arr1[j];
+            }
+        }
+        return slargest;
+    }
+    
+    
+    int print2largest(vector<int> &arr) {
+       int printlargest=slargest(arr);
+       cout<<printlargest;
+       
+    }
+};
+
+//{ Driver Code Starts.
+
+int main() {
+    int t;
+    cin >> t;
+    cin.ignore();
+    while (t--) {
+        vector<int> arr;
+        string input;
+        getline(cin, input);
+        stringstream ss(input);
+        int number;
+        while (ss >> number) {
+            arr.push_back(number);
+        }
+        Solution ob;
+        int ans = ob.print2largest(arr);
+        cout << ans << endl;
+    }
+    return 0;
+}
+
+// } Driver Code Ends
